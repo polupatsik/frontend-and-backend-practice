@@ -1,29 +1,148 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Контакты</title>
-    <link rel="stylesheet" href="../style/styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Контакты — Мини-проект</title>
+  <link rel="stylesheet" href="../style/styles.css">
 </head>
 <body>
-    <div class="page-container">
-        <div class="header">Контакты</div>
-        <div class="nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
-                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
-                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
-                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
-                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
-            </ul>
+  <div class="page-container">
+    <header class="header">
+      <h1>Контакты</h1>
+    </header>
+
+    <nav class="nav" aria-label="Навигация">
+      <ul class="nav-list">
+        <li><a href="../index.html">Главная</a></li>
+        <li><a href="news.html">Новости</a></li>
+        <li><a href="goods.html">Товары</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+      </ul>
+    </nav>
+
+    <main class="content">
+      <section class="contacts-container">
+        <h2 class="section-title">Наши контакты</h2>
+
+        <article class="contact-info">
+          <h3>Почта</h3>
+          <p>example@mirea.ru</p>
+        </article>
+
+        <article class="contact-info">
+          <h3>Телефон</h3>
+          <p>+7 (900) 000-00-00</p>
+        </article>
+
+        <p>Если хотите написать, нажмите кнопку ниже (да, она немного криво стилизована, но рабочая)</p>
+
+        <button class="contact-button" id="openModal">Связаться с нами</button>
+
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2025 — Контакты</p>
+    </footer>
+
+    <dialog id="contactModal">
+      <form method="dialog" id="feedbackForm">
+        <div class="modal-header"><h2>Форма обратной связи</h2></div>
+        <div class="modal-content">
+          <div class="form-group">
+            <label for="name">Имя <span class="required">*</span></label>
+            <input id="name" name="name" required placeholder="Ваше имя">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Телефон <span class="required">*</span></label>
+            <input id="phone" name="phone" type="tel" required placeholder="+7 (___) ___-__-__">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Почта <span class="required">*</span></label>
+            <input id="email" name="email" type="email" required placeholder="example@mail.ru">
+          </div>
+
+          <div class="form-group">
+            <label for="category">Категория <span class="required">*</span></label>
+            <select id="category" name="category" required>
+              <option value="">-- выберите --</option>
+              <option value="tech">Техподдержка</option>
+              <option value="com">Коммерция</option>
+              <option value="coop">Сотрудничество</option>
+              <option value="other">Другое</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Сообщение <span class="required">*</span></label>
+            <textarea id="message" name="message" required placeholder="Опишите ваш вопрос..."></textarea>
+          </div>
+
+          <div class="modal-actions">
+            <button type="button" class="btn btn-secondary" id="cancelBtn">Отмена</button>
+            <button type="button" class="btn btn-primary" id="sendBtn">Отправить</button>
+          </div>
         </div>
-        <div class="content">
-            <h2 class="section-title">Свяжитесь со мной</h2>
-            <p>Email: <a href="mailto:mikhail@example.com">mikhail@example.com</a></p>
-            <button>Позвоните мне</button>
-        </div>
-        <div class="footer">© 2025 Дружков Михаил</div>
-    </div>
+      </form>
+    </dialog>
+
+  </div>
+
+<script>
+const modal = document.getElementById('contactModal');
+const openBtn = document.getElementById('openModal');
+const cancelBtn = document.getElementById('cancelBtn');
+const sendBtn = document.getElementById('sendBtn');
+const form = document.getElementById('feedbackForm');
+
+openBtn.addEventListener('click', () => {
+  if (!modal.open) modal.showModal();
+});
+
+// close on cancel
+cancelBtn.addEventListener('click', () => {
+  modal.close();
+  form.reset();
+});
+
+// basic send handler
+sendBtn.addEventListener('click', () => {
+  // simple validation using constraints API
+  const nativeForm = document.getElementById('feedbackForm');
+  const inputs = nativeForm.querySelectorAll('[required]');
+  let ok = true;
+  inputs.forEach(input => {
+    if (!input.checkValidity()) {
+      input.reportValidity();
+      ok = false;
+    }
+  });
+  if (!ok) return;
+
+  // collect data
+  const data = {
+    name: document.getElementById('name').value,
+    phone: document.getElementById('phone').value,
+    email: document.getElementById('email').value,
+    category: document.getElementById('category').value,
+    message: document.getElementById('message').value,
+  };
+
+  console.log('Форма отправлена (демо):', data);
+
+  alert('Спасибо! Ваше сообщение отправлено. :)');
+
+  modal.close();
+  nativeForm.reset();
+});
+
+// close when click outside dialog content
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) modal.close();
+});
+</script>
 </body>
 </html>

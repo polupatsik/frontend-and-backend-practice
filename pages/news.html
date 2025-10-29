@@ -1,41 +1,45 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Новости</title>
-    <link rel="stylesheet" href="../style/styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Новости — Мини-проект</title>
+  <link rel="stylesheet" href="../style/styles.css">
 </head>
 <body>
-    <div class="page-container">
-        <div class="header">Новости</div>
-        <div class="nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
-                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
-                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
-                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
-                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
-            </ul>
-        </div>
-        <div class="content">
-            <div class="experience-section">
-                <h2 class="section-title">Последние новости</h2>
-                <div class="experience-card">
-                    <h3 class="experience-title">Новость 1</h3>
-                    <p class="experience-desc">Стартовал новый семестр по дисциплине «Фронтенд и бэкенд».</p>
-                </div>
-                <div class="experience-card">
-                    <h3 class="experience-title">Новость 2</h3>
-                    <p class="experience-desc">Подготовлен проект для публикации на GitHub Pages.</p>
-                </div>
-                <div class="experience-card">
-                    <h3 class="experience-title">Новость 3</h3>
-                    <p class="experience-desc">Продолжается работа над курсовым проектом.</p>
-                </div>
-            </div>
-        </div>
-        <div class="footer">© 2025 Дружков Михаил</div>
-    </div>
+  <div class="page-container">
+    <header class="header">
+      <h1>Новости проекта</h1>
+    </header>
+
+    <nav class="nav" aria-label="Навигация">
+      <ul class="nav-list">
+        <li><a href="../index.html">Главная</a></li>
+        <li><a href="news.html">Новости</a></li>
+        <li><a href="goods.html">Товары</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+      </ul>
+    </nav>
+
+    <main class="content">
+      <section class="news-container">
+        <article class="news-card">
+          <h2 class="news-title">Небольшое обновление</h2>
+          <p class="news-meta">Дата: 2025-10-29</p>
+          <p class="news-text">Добавил семантику и модальное окно, убрал лишние дивы, сделал по проще.</p>
+        </article>
+
+        <article class="news-card">
+          <h2 class="news-title">Работа с формой</h2>
+          <p class="news-meta">Дата: 2025-10-29</p>
+          <p class="news-text">Форма на странице контактов теперь открывается в &lt;dialog&gt; и валидируется.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2025 — Демка</p>
+    </footer>
+  </div>
 </body>
 </html>

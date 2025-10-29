@@ -1,51 +1,68 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Семестровая работа</title>
-    <link rel="stylesheet" href="style/styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Мини-проект — Дружков М. М.</title>
+  <link rel="stylesheet" href="style/styles.css">
 </head>
 <body>
-    <div class="page-container">
-        <div class="header">Портфолио</div>
-        <div class="nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
-                <li class="nav-item"><a class="nav-link" href="pages/news.html">Новости</a></li>
-                <li class="nav-item"><a class="nav-link" href="pages/practices.html">Практики</a></li>
-                <li class="nav-item"><a class="nav-link" href="pages/goods.html">Товары</a></li>
-                <li class="nav-item"><a class="nav-link" href="pages/contacts.html">Контакты</a></li>
-            </ul>
+  <div class="page-container">
+    <header class="header">
+      <h1>Мини-проект (просто)</h1>
+      <p class="subtitle">Небольшой сайт, сделан как студенческая работа</p>
+    </header>
+
+    <nav class="nav" aria-label="Главное меню">
+      <ul class="nav-list">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="pages/news.html">Новости</a></li>
+        <li><a href="pages/goods.html">Товары</a></li>
+        <li><a href="pages/contacts.html">Контакты</a></li>
+      </ul>
+    </nav>
+
+    <main class="content">
+      <article class="profile-header">
+        <h2 class="profile-title">Информация об авторе</h2>
+        <img class="profile-photo" src="images/avatar.png" alt="Фото автора (заглушка)">
+        <h3 class="profile-name">Дружков Михаил Михайлович</h3>
+        <p class="profile-group">группа ЭФБО-07-24</p>
+      </article>
+
+      <section class="about-me">
+        <h2>Обо мне</h2>
+        <p>Это простой мини-сайт, сделан как демо. Писал по-поспешному, но стараюсь.</p>
+      </section>
+
+      <section class="skills-container">
+        <h2>Навыки</h2>
+        <div class="skills-grid">
+          <div class="skill-tag">HTML</div>
+          <div class="skill-tag">CSS</div>
+          <div class="skill-tag">JS (базово)</div>
+          <div class="skill-tag">Git / GitHub</div>
         </div>
-        <div class="content">
-            <div class="profile-header">
-                <h1 class="profile-title">Информация об авторе</h1>
-                <img class="profile-photo" src="images/photo.png" alt="Фото слона">
-                <h2 class="profile-name">Дружков Михаил Михайлович</h2>
-                <p class="profile-group">ЭФБО 07 24</p>
-            </div>
+      </section>
 
-            <div class="about-me">
-                <p>Обо мне: студент, увлекаюсь IT, спортом и люблю учиться новому.</p>
-            </div>
-
-            <div class="skills-container">
-                <div class="skill-tag">Плавание</div>
-                <div class="skill-tag">Разработка скриптов</div>
-                <div class="skill-tag">Знание CSS</div>
-                <div class="skill-tag">Знание HTML</div>
-            </div>
-
-            <div class="experience-section">
-                <h2 class="section-title">Мой опыт работы</h2>
-                <div class="experience-card">
-                    <h3 class="experience-title">Курсовой проект</h3>
-                    <p class="experience-desc">Разработка сайта с использованием HTML и CSS.</p>
-                </div>
-            </div>
+      <section class="experience-section">
+        <h2 class="section-title">Опыт</h2>
+        <div class="experience-grid">
+          <article class="experience-card">
+            <h3 class="experience-title">Проект 1</h3>
+            <p class="experience-desc">Делал макет сайта, немного адаптировал под мобилы.</p>
+          </article>
+          <article class="experience-card">
+            <h3 class="experience-title">Проект 2</h3>
+            <p class="experience-desc">Учебный проект, хитрые баги с позиционированием.</p>
+          </article>
         </div>
-        <div class="footer">© 2025 Дружков Михаил</div>
-    </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2025 — Дружков М.М.  (студ. работа)</p>
+    </footer>
+  </div>
 </body>
 </html>
