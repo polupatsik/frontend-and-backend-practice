@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Проекты — Портфолио</title>
+  <link rel="stylesheet" href="../style/styles.css">
+  <style>
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;padding:16px}
+    .card{background:var(--panel);padding:12px;border-radius:10px;box-shadow:0 6px 12px rgba(0,0,0,0.15)}
+    .card img{max-width:100%;border-radius:6px}
+    .modal{position:fixed;left:0;top:0;right:0;bottom:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.5)}
+    .modal__inner{background:var(--panel);padding:16px;border-radius:12px;max-width:800px;width:90%}
+    .close-btn{float:right;background:none;border:0;font-size:1.2rem;cursor:pointer}
+  </style>
+</head>
+<body>
+  <div class="page-container">
+    <header class="header"><h1>Проекты</h1></header>
+    <!-- Навигация будет заменена при сборке -->
+    <nav class="nav" aria-label="Навигация">
+      <ul class="nav-list">
+        <li><a href="../index.html">Главная</a></li>
+        <li><a href="projects.html">Проекты</a></li>
+        <li><a href="diary.html">Дневник</a></li>
+        <li><a href="news.html">Новости</a></li>
+        <li><a href="goods.html">Товары</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+      </ul>
+    </nav>
+
+    <main class="content">
+      <section>
+        <h2>Мои проекты</h2>
+        <div class="projects-grid" id="projectsGrid">
+          <!-- карточки будут добавлены скриптом -->
+        </div>
+      </section>
+    </main>
+
+    <div class="modal" id="projectModal" role="dialog" aria-hidden="true">
+      <div class="modal__inner" role="document">
+        <button class="close-btn" id="closeModal">✖</button>
+        <h3 id="modalTitle"></h3>
+        <p id="modalDesc"></p>
+        <div id="modalImages"></div>
+        <p><a id="modalLive" href="#" target="_blank" rel="noopener">Живая версия</a> • <a id="modalCode" href="#" target="_blank" rel="noopener">Исходный код</a></p>
+      </div>
+    </div>
+
+  </div>
+  <script src="../scripts/projects.js"></script>
+</body>
+</html>

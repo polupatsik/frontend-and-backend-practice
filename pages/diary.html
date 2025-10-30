@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Дневник — Учебный прогресс</title>
+  <link rel="stylesheet" href="../style/styles.css">
+  <style>
+    .entry{background:var(--panel);padding:12px;border-radius:8px;margin-bottom:10px}
+    .progress{background:rgba(255,255,255,0.04);height:14px;border-radius:8px;overflow:hidden}
+    .progress > b{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#6fb1ff);width:0%}
+  </style>
+</head>
+<body>
+  <div class="page-container">
+    <header class="header"><h1>Учебный дневник</h1></header>
+    <nav class="nav" aria-label="Навигация">
+      <ul class="nav-list">
+        <li><a href="../index.html">Главная</a></li>
+        <li><a href="projects.html">Проекты</a></li>
+        <li><a href="diary.html">Дневник</a></li>
+        <li><a href="news.html">Новости</a></li>
+        <li><a href="goods.html">Товары</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+      </ul>
+    </nav>
+
+    <main class="content">
+      <section>
+        <h2>Мой учебный прогресс</h2>
+        <div id="entries">
+          <!-- Примеры (будут удаляться при загрузке из localStorage) -->
+          <div class="entry">
+            <strong>Веб-разработка</strong>
+            <div class="progress" data-value="90"><b style="width:90%"></b></div>
+          </div>
+          <div class="entry">
+            <strong>JavaScript</strong>
+            <div class="progress" data-value="70"><b style="width:70%"></b></div>
+          </div>
+        </div>
+
+        <h3>Добавить запись</h3>
+        <form id="entryForm">
+          <label>Название<br><input type="text" id="entryTitle" required></label><br>
+          <label>Прогресс (0-100)<br><input type="number" id="entryValue" min="0" max="100" required></label><br><br>
+          <button type="submit">Добавить</button>
+        </form>
+      </section>
+    </main>
+  </div>
+  <script>
+    // Простая логика — хранение записей в localStorage
+    const form = document.getElementById('entryForm');
+    const entries = document.getElementById('entries');
+    function renderList(list){
+      entries.innerHTML='';
+      list.forEach(it=>{
+        const div=document.createElement('div');div.className='entry';
+        div.innerHTML='<strong>'+it.title+'</strong><div class="progress" data-value="'+it.value+'"><b style="width:'+it.value+'%"></b></div>';
+        entries.appendChild(div);
+      });
+    }
+    function load(){
+      const raw=localStorage.getItem('diaryEntries'); 
+      const list = raw ? JSON.parse(raw) : [{title:'Веб-разработка',value:90},{title:'JavaScript',value:70}];
+      renderList(list);
+      return list;
+    }
+    let list = load();
+    form.addEventListener('submit', e=>{
+      e.preventDefault();
+      const t=document.getElementById('entryTitle').value.trim();
+      const v=Number(document.getElementById('entryValue').value);
+      if(!t || isNaN(v)) return;
+      list.push({title:t,value:v});
+      localStorage.setItem('diaryEntries', JSON.stringify(list));
+      renderList(list);
+      form.reset();
+    });
+  </script>
+</body>
+</html>
