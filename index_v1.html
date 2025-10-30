@@ -11,9 +11,7 @@
     <header class="header">
       <h1>Мини-проект</h1>
       <p class="subtitle">Небольшой сайт</p>
-    
-  <div class="header__actions"><button id="themeToggle" class="theme-toggle" aria-label="Переключить тему">🌙</button></div>
-</header>
+    </header>
 
     <nav class="nav" aria-label="Главное меню">
       <ul class="nav-list">
@@ -66,34 +64,5 @@
       <p>© 2025 — Дружков М.М.</p>
     </footer>
   </div>
-
-<script>
-/* theme-toggle script */
-(function(){
-  const btn = document.getElementById('themeToggle');
-  const root = document.documentElement;
-  const stored = localStorage.getItem('theme');
-  if(stored) root.setAttribute('data-theme', stored);
-  function updateBtn(){
-    const cur = root.getAttribute('data-theme');
-    if(cur === 'light'){
-      if(btn) btn.textContent = '🌞';
-    } else {
-      if(btn) btn.textContent = '🌙';
-    }
-  }
-  updateBtn();
-  if(btn){
-    btn.addEventListener('click', function(){
-      const cur = root.getAttribute('data-theme');
-      const next = cur === 'light' ? '' : 'light';
-      if(next) root.setAttribute('data-theme', next); else root.removeAttribute('data-theme');
-      localStorage.setItem('theme', next);
-      updateBtn();
-    });
-  }
-})();
-</script>
-
 </body>
 </html>

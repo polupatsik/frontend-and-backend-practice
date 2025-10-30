@@ -1,3 +1,36 @@
+
+/* ===== Theme variables (added for practice 11) ===== */
+:root {
+  --bg: #0f1720;
+  --panel: #121826;
+  --text: #e6eef6;
+  --muted: #9aa4b2;
+  --accent: #5b9cff;
+  --radius: 10px;
+  --gap: 12px;
+}
+
+[data-theme="light"] {
+  --bg: #f5f7fb;
+  --panel: #ffffff;
+  --text: #0f1720;
+  --muted: #5a6a78;
+  --accent: #2b7be9;
+}
+
+/* Basic body using variables */
+body{
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+/* Simple BEM-like helper examples (practice 11) */
+.header { padding: 16px; background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-bottom:1px solid rgba(255,255,255,0.03); }
+.header__title { font-size: 1.4rem; margin:0; color:var(--text); }
+.header__actions { float:right; }
+.theme-toggle { background:transparent; border:1px solid rgba(255,255,255,0.04); padding:6px 10px; border-radius:6px; cursor:pointer; color:var(--text); }
+
 /* ====== Простые стили (тёмная тема) ====== */
 :root{
   --bg:#0f1720;
