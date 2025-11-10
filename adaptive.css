@@ -1,1 +1,101 @@
-/* adaptive.css content placed manually by user from canvas */
+/* ✅ Aдаптивные изображения — стили */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --primary-color: #2563eb;
+  --text-color: #1e293b;
+  --bg-color: #f8fafc;
+  --border-color: #e2e8f0;
+  --radius: 8px;
+  --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+  --transition: .3s ease;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 20px;
+}
+
+.container { max-width: 1200px; margin: auto; }
+
+/* Блоки */
+.header, .section, .footer {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.section__title {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+/* Адаптивное изображение */
+.image-container {
+  border: 2px dashed var(--border-color);
+  padding: 1rem;
+  border-radius: var(--radius);
+}
+
+.responsive-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+}
+
+/* Retina */
+.retina-image {
+  width: 120px;
+  height: 120px;
+  display: block;
+  margin: auto;
+}
+
+/* Object-fit */
+.object-fit-demo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.object-fit-item img {
+  width: 100%;
+  height: 200px;
+  border-radius: var(--radius);
+  border: 2px solid var(--border-color);
+}
+.object-fit-cover { object-fit: cover; }
+.object-fit-contain { object-fit: contain; background: #e2e8f0; }
+.object-fit-fill { object-fit: fill; }
+
+/* Галерея */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.gallery__image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  transition: .3s;
+}
+.gallery__image:hover { transform: scale(1.05); }
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .object-fit-demo { grid-template-columns: 1fr; }
+  .gallery { grid-template-columns: repeat(2, 1fr); }
+  .gallery__image { height: 150px; }
+}
+
+@media (max-width: 480px) {
+  .gallery { grid-template-columns: 1fr; }
+}
