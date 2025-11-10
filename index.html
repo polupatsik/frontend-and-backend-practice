@@ -11,9 +11,11 @@
     <header class="header">
       <h1>Мини-проект</h1>
       <p class="subtitle">Небольшой сайт</p>
-    
-  <div class="header__actions"><button id="themeToggle" class="theme-toggle" aria-label="Переключить тему">🌙</button></div>
-</header>
+
+      <div class="header__actions">
+        <button id="themeToggle" class="theme-toggle" aria-label="Переключить тему">🌙</button>
+      </div>
+    </header>
 
     <nav class="nav" aria-label="Главное меню">
       <ul class="nav-list">
@@ -23,10 +25,13 @@
         <li><a href="pages/contacts.html">Контакты</a></li>
         <li><a href="pages/diary.html">Дневник</a></li>
         <li><a href="pages/projects.html">Проекты</a></li>
+        <li><a href="adaptive.html">Адаптивные изображения</a></li>
       </ul>
     </nav>
 
-    <main class="content">  <p><a class="btn" href="assets/resume.pdf" download>Скачать резюме</a></p>
+    <main class="content">
+      <p><a class="btn" href="assets/resume.pdf" download>Скачать резюме</a></p>
+
       <article class="profile-header">
         <h2 class="profile-title">Информация</h2>
         <img class="profile-photo" src="images/123.png" alt="фото">
@@ -62,6 +67,7 @@
           </article>
         </div>
       </section>
+
     </main>
 
     <footer class="footer">
@@ -70,7 +76,6 @@
   </div>
 
 <script>
-/* theme-toggle script */
 (function(){
   const btn = document.getElementById('themeToggle');
   const root = document.documentElement;
@@ -78,22 +83,16 @@
   if(stored) root.setAttribute('data-theme', stored);
   function updateBtn(){
     const cur = root.getAttribute('data-theme');
-    if(cur === 'light'){
-      if(btn) btn.textContent = '🌞';
-    } else {
-      if(btn) btn.textContent = '🌙';
-    }
+    btn.textContent = cur === 'light' ? '🌞' : '🌙';
   }
   updateBtn();
-  if(btn){
-    btn.addEventListener('click', function(){
-      const cur = root.getAttribute('data-theme');
-      const next = cur === 'light' ? '' : 'light';
-      if(next) root.setAttribute('data-theme', next); else root.removeAttribute('data-theme');
-      localStorage.setItem('theme', next);
-      updateBtn();
-    });
-  }
+  btn.addEventListener('click', function(){
+    const cur = root.getAttribute('data-theme');
+    const next = cur === 'light' ? '' : 'light';
+    if(next) root.setAttribute('data-theme', next); else root.removeAttribute('data-theme');
+    localStorage.setItem('theme', next);
+    updateBtn();
+  });
 })();
 </script>
 
