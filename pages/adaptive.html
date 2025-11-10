@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Адаптивные изображения — практика №16</title>
+    <link rel="stylesheet" href="adaptive.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="header__title">Адаптивные изображения</h1>
+            <p class="header__subtitle">Практическое занятие №16</p>
+        </header>
+
+        <main class="main">
+
+            <!-- 1. Простое адаптивное изображение -->
+            <section class="section">
+                <h2 class="section__title">1. Базовое адаптивное изображение</h2>
+                <div class="image-container">
+                    <img src="https://picsum.photos/1200/600" alt="Пейзаж" class="responsive-image">
+                </div>
+            </section>
+
+            <!-- 2. Picture с WebP / JPEG -->
+            <section class="section">
+                <h2 class="section__title">2. Picture element с форматами (WebP / JPG)</h2>
+                <div class="image-container">
+                    <picture>
+                        <source srcset="https://picsum.photos/600/800.webp" type="image/webp">
+                        <source srcset="https://picsum.photos/600/800.jpg" type="image/jpeg">
+                        <img src="https://picsum.photos/600/800.jpg" alt="Портрет" class="responsive-image">
+                    </picture>
+                </div>
+            </section>
+
+            <!-- 3. Разные изображения на разных экранах -->
+            <section class="section">
+                <h2 class="section__title">3. Разные изображения для разных экранов</h2>
+                <div class="image-container">
+                    <picture>
+                        <source media="(min-width: 1200px)" srcset="https://picsum.photos/1600/900">
+                        <source media="(min-width: 768px)" srcset="https://picsum.photos/1000/700">
+                        <img src="https://picsum.photos/600/400" alt="Адаптивное изображение" class="responsive-image">
+                    </picture>
+                </div>
+            </section>
+
+            <!-- 4. Retina -->
+            <section class="section">
+                <h2 class="section__title">4. Retina поддержка (srcset @2x)</h2>
+                <div class="image-container">
+                    <img src="https://picsum.photos/200/200"
+                         srcset="https://picsum.photos/200/200 1x, https://picsum.photos/400/400 2x"
+                         alt="Retina icon"
+                         class="retina-image">
+                </div>
+            </section>
+
+            <!-- 5. Object-fit -->
+            <section class="section">
+                <h2 class="section__title">5. Object-fit (cover / contain / fill)</h2>
+                <div class="object-fit-demo">
+                    <div class="object-fit-item">
+                        <img src="https://picsum.photos/600/600" class="object-fit-cover"><span>cover</span>
+                    </div>
+                    <div class="object-fit-item">
+                        <img src="https://picsum.photos/600/600" class="object-fit-contain"><span>contain</span>
+                    </div>
+                    <div class="object-fit-item">
+                        <img src="https://picsum.photos/600/600" class="object-fit-fill"><span>fill</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. Адаптивная галерея -->
+            <section class="section">
+                <h2 class="section__title">6. Адаптивная галерея (4 → 2 → 1)</h2>
+                <div class="gallery">
+                    <img src="https://picsum.photos/400/300?1" class="gallery__image">
+                    <img src="https://picsum.photos/400/300?2" class="gallery__image">
+                    <img src="https://picsum.photos/400/300?3" class="gallery__image">
+                    <img src="https://picsum.photos/400/300?4" class="gallery__image">
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="footer">
+            <p>Измените размер окна, чтобы увидеть адаптивность изображения</p>
+        </footer>
+
+    </div>
+</body>
+</html>
